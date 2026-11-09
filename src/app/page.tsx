@@ -8,7 +8,7 @@ export default function Home() {
 
       <section className="p-10 md:p-24 text-center max-w-6xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-          Website Toko Online <br/> Yang Bikin Omzet Naik 2x
+          Website Toko Online Broded<br/> Yang Bikin Omzet Naik 10x Lipaatt
         </h2>
         <p className="mt-6 text-gray-500">Dibuat dengan Next.js - Cepat, Modern, SEO Friendly</p>
         <button className="mt-8 bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-zinc-800">
