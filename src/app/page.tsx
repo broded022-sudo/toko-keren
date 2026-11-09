@@ -19,7 +19,7 @@ export default function Home() {
     const total = cart.reduce((sum, p) => sum + p.price, 0);
     const list = cart.map(p => `- ${p.name} Rp${p.price.toLocaleString()}`).join('%0A');
     const msg = `Halo Broded! Mau order:%0A${list}%0A%0ATotal: Rp${total.toLocaleString()}%0A%0Atoko-keren.vercel.app`;
-    window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank');
+    window.open(`https://wa.me/6283877777280?text=${msg}`, '_blank');
   };
 
   return (
