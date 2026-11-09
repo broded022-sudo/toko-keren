@@ -1,58 +1,70 @@
 "use client";
 import { useState } from "react";
 
-const products = [
-  { id: 1, name: "Sepatu Broded Original", price: 350000, img: "👟" },
-  { id: 2, name: "Jaket Streetwear Keren", price: 275000, img: "🧥" },
-  { id: 3, name: "Kaos Oversize Lipaatt", price: 129000, img: "👕" },
-];
-
 export default function Home() {
-  const [cart, setCart] = useState<any[]>([]);
-
-  const addToCart = (p: any) => {
-    setCart([...cart, p]);
-    alert(`${p.name} masuk keranjang!`);
-  };
+  const [qty, setQty] = useState(1);
+  const price = 7000;
+  const total = qty * price;
+  const waNumber = "6283877777280"; // nomor lu
 
   const checkoutWA = () => {
-    const total = cart.reduce((sum, p) => sum + p.price, 0);
-    const list = cart.map(p => `- ${p.name} Rp${p.price.toLocaleString()}`).join('%0A');
-    const msg = `Halo Broded! Mau order:%0A${list}%0A%0ATotal: Rp${total.toLocaleString()}%0A%0Atoko-keren.vercel.app`;
-    window.open(`https://wa.me/6283877777280?text=${msg}`, '_blank');
+    const msg = `Halo Kak! Mau order Pisau Brownis Putih:%0A%0A- Produk: Pisau Brownis Putih Isi 100 Pak%0A- Qty: ${qty} pack%0A- Harga: Rp${price.toLocaleString()}/pack%0A- Total: Rp${total.toLocaleString()}%0A%0ABisa COD kan?%0A%0Atoko-keren.vercel.app`;
+    window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
   };
 
   return (
-    <main className="min-h-screen bg-white text-black p-6 max-w-5xl mx-auto">
-      <header className="flex justify-between items-center border-b pb-4">
-        <h1 className="font-black text-xl">TOKO BRODED</h1>
-        <button onClick={checkoutWA} className="bg-black text-white px-4 py-2 rounded-full text-sm">
-          Keranjang ({cart.length})
-        </button>
-      </header>
-
-      <div className="text-center py-16">
-        <h2 className="text-5xl font-black leading-tight">Website Toko Online Broded<br/>Omzet Naik 10x Lipaatt</h2>
-        <p className="text-gray-500 mt-4">Klik produk, masuk keranjang, langsung checkout WA!</p>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-6">
-        {products.map(p => (
-          <div key={p.id} className="border rounded-2xl p-6 hover:shadow-xl transition">
-            <div className="text-6xl mb-4">{p.img}</div>
-            <h3 className="font-bold">{p.name}</h3>
-            <p className="text-gray-500 mb-4">Rp {p.price.toLocaleString()}</p>
-            <button onClick={() => addToCart(p)} className="w-full bg-black text-white py-3 rounded-full font-bold">+ Keranjang</button>
-          </div>
-        ))}
-      </div>
-
-      {cart.length > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white px-8 py-4 rounded-full flex gap-4 items-center shadow-2xl">
-          <span>{cart.length} barang | Rp {cart.reduce((s,p)=>s+p.price,0).toLocaleString()}</span>
-          <button onClick={checkoutWA} className="bg-white text-black px-4 py-2 rounded-full font-bold">Checkout WA</button>
+    <main className="min-h-screen bg-[#FF8A00] text-white">
+      <div className="max-w-6xl mx-auto p-4 md:p-8 grid md:grid-cols-2 gap-8 items-center min-h-screen">
+        
+        {/* KIRI - FOTO */}
+        <div className="bg-white rounded-[30px] p-4 shadow-2xl">
+          <img src="/pisau.jpg" alt="Pisau Brownis" className="w-full rounded-[20px]" />
         </div>
-      )}
+
+        {/* KANAN - JUALAN */}
+        <div className="space-y-4">
+          <div className="flex gap-2">
+            <span className="bg-black text-white px-3 py-1 rounded-full text-xs font-bold">BEST QUALITY PREMIUM</span>
+            <span className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">TERLARIS 10RB+ TERJUAL</span>
+          </div>
+          
+          <h1 className="text-5xl font-black leading-none">PISAU<br/>BROWNIS<br/>PUTIH</h1>
+          <p className="text-3xl font-bold text-yellow-200">ISI 100 PAK</p>
+          
+          <div className="bg-white text-black rounded-2xl p-5 space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-500">Harga per pack</span>
+              <span className="text-3xl font-black">Rp 7.000</span>
+            </div>
+            
+            <div className="flex justify-between items-center border-t pt-3">
+              <span>Jumlah</span>
+              <div className="flex gap-3 items-center">
+                <button onClick={()=>setQty(Math.max(1,qty-1))} className="w-10 h-10 bg-black text-white rounded-full">-</button>
+                <span className="font-bold text-xl w-8 text-center">{qty}</span>
+                <button onClick={()=>setQty(qty+1)} className="w-10 h-10 bg-black text-white rounded-full">+</button>
+              </div>
+            </div>
+
+            <div className="flex justify-between font-bold text-lg border-t pt-3">
+              <span>Total</span>
+              <span>Rp {total.toLocaleString()}</span>
+            </div>
+
+            <button onClick={checkoutWA} className="w-full bg-green-500 text-white py-4 rounded-full font-black text-lg flex justify-center gap-2">
+              <span>🟢</span> ORDER VIA WHATSAPP - BISA COD
+            </button>
+            
+            <p className="text-center text-xs text-gray-500">Grosir lebih murah? Chat aja!</p>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 text-center text-sm font-bold">
+            <div className="bg-black/20 p-3 rounded-xl">✓ Food Grade</div>
+            <div className="bg-black/20 p-3 rounded-xl">✓ Tebal</div>
+            <div className="bg-black/20 p-3 rounded-xl">✓ COD</div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
