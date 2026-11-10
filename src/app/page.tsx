@@ -36,7 +36,7 @@ export default function Home() {
   const filtered = filter === "SEMUA" ? allProducts : allProducts.filter(p => p.cat === filter);
 
   return (
-    <main className="min-h-screen bg-[#FF8A00] pb-32">
+    <main className="min-h-screen bg-[#FF8A00] pb-40">
       {/* HEADER */}
       <header className="bg-black text-white p-4 flex justify-between items-center sticky top-0 z-50">
         <div>
