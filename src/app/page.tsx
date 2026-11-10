@@ -50,13 +50,13 @@ export default function Home() {
         {/* HERO VIRAL */}
         <div className="text-white py-8">
           <div className="bg-black inline-block px-3 py-1 rounded-full text-xs font-bold mb-3">📦 READY STOK • BISA COD HARI INI</div>
-          <h1 className="text-4xl md:text-6xl font-black leading-[0.9]">PISAU<br/>HANGER<br/>BASKOM<br/><span className="text-black bg-white px-2">TERMURAH</span></h1>
-          <p className="mt-4 text-white/80 text-sm">Grosir asli Pakuhaji. Harga kulakan, kualitas premium. Terlaris di Shopee!</p>
-          <div className="grid grid-cols-3 gap-2 mt-6 text-center">
-            <div className="bg-white text-black p-3 rounded-2xl"><div className="font-black">10RB+</div><div className="text-[10px]">Terjual</div></div>
-            <div className="bg-white text-black p-3 rounded-2xl"><div className="font-black">4.9★</div><div className="text-[10px]">Rating</div></div>
-            <div className="bg-white text-black p-3 rounded-2xl"><div className="font-black">COD</div><div className="text-[10px]">Bisa</div></div>
-          </div>
+            <h1 className="text-4xl md:text-6xl font-black leading-[0.9]">PISAU<br/>HANGER<br/>BASKOM<br/><span className="text-black bg-white px-3 py-1 inline-block mt-2 leading-none">TERMURAH</span></h1>
+              <p className="mt-4 text-white/80 text-sm">Grosir asli Pakuhaji. Harga kulakan, kualitas premium. Terlaris di Shopee!</p>
+                <div className="grid grid-cols-3 gap-2 mt-6 text-center">
+                <div className="bg-white text-black p-3 rounded-2xl"><div className="font-black">10RB+</div><div className="text-[10px]">Terjual</div></div>
+                <div className="bg-white text-black p-3 rounded-2xl"><div className="font-black">4.9★</div><div className="text-[10px]">Rating</div></div>
+                <div className="bg-white text-black p-3 rounded-2xl"><div className="font-black">COD</div><div className="text-[10px]">Bisa</div></div>
+            </div>
         </div>
 
         {/* FILTER */}
